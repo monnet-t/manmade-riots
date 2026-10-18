@@ -12,7 +12,7 @@ Cette étude, simple et macroscopique, pose une base de discussion sur l'évalua
 - **Question** : peut-on estimer le nombre de véhicules incendiés lors d'un épisode de violences urbaines à partir des interpellations et des effectifs de forces de l'ordre mobilisés ?
 - **Méthode** : calage sur les émeutes de 2005 (17 nuits exploitables), contrôle hors échantillon sur celles de 2023 (9 nuits).
 - **Résultat** : les résultats obtenus sur les émeutes de 2023 sont acceptables, avec 1 % d'écart par rapport aux dommages estimés (pourcentage d'un total France Assureurs, pas de données fines).
-- **Réserve principale** : les émeutes de 2023 nous ont appris que nos références passées avaient changé : pillages et affrontements sont aujourd'hui bien plus présents que les feux de voitures. Par conséquent, ce modèle est probablement déjà dépassé. De plus, il est calé sur des données de marché dont il est difficile de valider la qualité.
+- **Réserve principale** : les émeutes de 2023 nous ont appris que nos références passées avaient changé : pillages et affrontements sont aujourd'hui bien plus présents que les feux de voitures. Par conséquent, ce modèle doit être recalé par type d'événement. De plus, il est calé sur des données de marché dont il est difficile de valider la qualité.
 
 L'analyse des événements de 2005 fait ressortir une corrélation forte entre interpellations et véhicules incendiés. En termes de causalité, se faire prendre en mettant le feu à un véhicule entraîne une interpellation ; ici, on remonte le processus en sens inverse.
 Par ailleurs, plus les forces de l'ordre sont nombreuses, plus elles peuvent procéder à des interpellations, parfois préventives, ou simplement jouer un rôle dissuasif. Il semble donc judicieux d'intégrer cette seconde dimension au modèle.
@@ -90,7 +90,7 @@ Ces éléments, structurants pour le modèle, peuvent être remis en cause et m�
 
 | Soirs | Effectifs retenus | Appui |
 |---|---|---|
-| 27 octobre au 2 novembre | 400 à 500 | Rapport d'information ASSEMBLÉE NATIONALE N° 2167 |
+| 27 octobre au 2 novembre | 400 à 500 | Centre d'analyse stratégique, *Enquêtes sur les violences urbaines* (2006) |
 | 3 novembre | 1 000 à 1 500 | Trajectoire haussière - avec retard |
 | 4 novembre | 3 000 à 4 000 | Trajectoire haussière - avec retard |
 | 5 novembre | 9 000 | Ralentissement avant atteinte d'un plafond |
@@ -122,7 +122,7 @@ Ces éléments, structurants pour le modèle, peuvent être remis en cause et m�
 | G1 | 9 717 | × 1,63 | × 1,29 | × 0,81 |
 | **G2** | **7 525** | **× 1,26** | **× 1,00** | **× 0,63** |
 
-Ces premiers résultats, bien qu'encourageants, ne sont pas satisfaisants. Il semble important de retravailler l'effet des effectifs, car un lien linéaire pourrait conduire à des dommages négatifs.
+Les modèles linéaires (M1, M2) peuvent produire des valeurs négatives ; G2, à lien log, corrige ce défaut et retrouve la borne basse à 1 % près.
 
 ### Effet des effectifs
 
@@ -157,7 +157,7 @@ Lecture proposée : les effectifs massifs augmentent les interpellations sans r�
 
 1. **Effectifs 2005 reconstitués.** La série a été établie à dire d'expert, après les premiers ajustements. Elle n'a pas été calée sur la cible, mais ce risque de sur-ajustement doit être signalé. Le raisonnement et les sources sont dans `METADATA.md`, et l'analyse de sensibilité en mesure l'effet.
 2. **Calendrier de la montée en charge.** Le rapport du Sénat n° 84 (16 novembre 2005) indique 8 000 hommes engagés au 7 novembre, renforcés de 1 500 réservistes. La série retenue atteint 11 500 dès le soir du 6. L'écart porte sur la date du pic, pas sur son niveau : les communiqués ultérieurs donnent 11 200. La variante alignée sur le Sénat abaisse la prévision de 10 %.
-3. **Deux événements seulement.** Comme énoncé en introduction, des différences notoires existent entre les émeutes de 2005 et celles de 2023 ; même si les chiffres se recoupent, cela peut être lié au hasard.
+3. **Deux événements seulement.** Comme énoncé en introduction, des différences notoires existent entre les émeutes de 2005 et celles de 2023 ; même si les chiffres se recoupent, deux événements ne suffisent pas à exclure une coïncidence.
 4. **Contrôle inverse médiocre.** Calé sur 2023 et appliqué à 2005, G2 surestime de 32 %.
 5. **Confusion possible avec le calendrier.** Dans les deux épisodes, les effectifs montent pendant que les incendies retombent ; c'est pourquoi un test avec effet retard a été mené, sans résultat concluant.
 6. **Périmètre des comptages.** Nous ne disposons pas d'information sur le périmètre de comptage de 2005 (source Wikipédia) ; en 2023, les chiffres sont issus (estimés) de France Assureurs et n'intègrent pas les véhicules de l'État (Police et Gendarmerie nationales).
