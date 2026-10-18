@@ -1,18 +1,21 @@
 # Émeutes et violences urbaines : un modèle simple des véhicules incendiés
 
 > **Statut** : étude exploratoire. Ordres de grandeur uniquement, pas un outil de tarification.
-> **Dernière mise à jour** : AAAA-MM-JJ
+> **Dernière mise à jour** : 2026-10-18
 
-<!-- À compléter : deux ou trois phrases d'accroche. Quelle question, quelle réponse, pour qui. -->
+Les émeutes urbaines sont des événements à part entière : les débordements en marge de mouvements populaires ne leur sont pas comparables.
+Comment estimer les pertes économiques de ce type d'événements, leurs périodes de retour, et donc les intégrer dans un tarif ?
+Cette étude, simple et macroscopique, pose une base de discussion sur l'évaluation des dommages en Automobile, en nombre de véhicules touchés : c'est un point de départ pour répondre aux questions précédentes.
 
 ## En bref
 
-<!-- À compléter : 3 à 5 lignes. Proposition de trame ci-dessous, chiffres issus du script. -->
-
 - **Question** : peut-on estimer le nombre de véhicules incendiés lors d'un épisode de violences urbaines à partir des interpellations et des effectifs de forces de l'ordre mobilisés ?
 - **Méthode** : calage sur les émeutes de 2005 (17 nuits exploitables), contrôle hors échantillon sur celles de 2023 (9 nuits).
-- **Résultat** : *à compléter*
-- **Réserve principale** : *à compléter*
+- **Résultat** : les résultats obtenus sur les émeutes de 2023 sont acceptables, avec 1 % d'écart par rapport aux dommages estimés (pourcentage d'un total France Assureurs, pas de données fines).
+- **Réserve principale** : les émeutes de 2023 nous ont appris que nos références passées avaient changé : pillages et affrontements sont aujourd'hui bien plus présents que les feux de voitures. Par conséquent, ce modèle est probablement déjà dépassé. De plus, il est calé sur des données de marché dont il est difficile de valider la qualité.
+
+L'analyse des événements de 2005 fait ressortir une corrélation forte entre interpellations et véhicules incendiés. En termes de causalité, se faire prendre en mettant le feu à un véhicule entraîne une interpellation ; ici, on remonte le processus en sens inverse.
+Par ailleurs, plus les forces de l'ordre sont nombreuses, plus elles peuvent procéder à des interpellations, parfois préventives, ou simplement jouer un rôle dissuasif. Il semble donc judicieux d'intégrer cette seconde dimension au modèle.
 
 ## Sommaire
 
@@ -29,7 +32,9 @@
 
 ## Contexte
 
-<!-- À compléter : pourquoi ce sujet (actualité, enjeu assurantiel), périmètre retenu, ce que l'étude ne traite pas. -->
+Début octobre 2026, le mouvement des lycéens prend une ampleur importante et grandissante. Bien que la situation soit très différente des émeutes de 2023 (ou de 2005), il semble intéressant de construire ce premier modèle, qui servira de point de départ à toute estimation d'impact.
+
+Quelques chiffres :
 
 | | 2005 | 2023 |
 |---|---|---|
@@ -48,11 +53,10 @@
 | `data/emeutes_journalier.csv` | Bilans nuit par nuit de 2005 et 2023 |
 | `METADATA.md` | Dictionnaire des colonnes, sources, incohérences relevées, statut de chaque valeur |
 
-<!-- À compléter : arborescence définitive du dépôt. -->
 
 ### Convention
 
-Une ligne correspond au bilan **au matin** du jour indiqué, donc à la nuit précédente.
+Une ligne correspond au bilan **au matin** du jour indiqué, donc à la nuit (et journée) précédente.
 
 ### Variables principales
 
@@ -79,19 +83,20 @@ Le détail est dans [`METADATA.md`](METADATA.md).
 
 **Effectifs mobilisés en 2005.** Aucune source ne publie leur dynamique nuit par nuit. La série utilisée est une reconstitution à dire d'expert.
 
-<!-- À compléter : le raisonnement de la reconstitution (phases de l'événement, retard de réaction, sources). Trame : -->
+Le rapport officiel s'appuie sur des entretiens : on y note que les forces de l'ordre mobilisées par commune étaient très réduites et qu'elles ont été rapidement dépassées.
+Les pouvoirs publics donnent quelques chiffres pour certains jours ; des publications et études spécifiques donnent des totaux de forces mobilisées.
+Pour combler les lacunes, on suppose une croissance des effectifs jusqu'à un plafond (communiqué), avec un effet retard, tel que décrit dans les rapports.
+Ces éléments, structurants pour le modèle, peuvent être remis en cause et mériteraient d'être confrontés à de nouvelles sources.
 
 | Soirs | Effectifs retenus | Appui |
 |---|---|---|
-| 27 octobre au 2 novembre | 400 à 500 | *à compléter* |
-| 3 novembre | 1 000 à 1 500 | *à compléter* |
-| 4 novembre | 3 000 à 4 000 | *à compléter* |
-| 5 novembre | 9 000 | *à compléter* |
+| 27 octobre au 2 novembre | 400 à 500 | Rapport d'information ASSEMBLÉE NATIONALE N° 2167 |
+| 3 novembre | 1 000 à 1 500 | Trajectoire haussière - avec retard |
+| 4 novembre | 3 000 à 4 000 | Trajectoire haussière - avec retard |
+| 5 novembre | 9 000 | Ralentissement avant atteinte d'un plafond |
 | À partir du 6 novembre | 11 500 | Engagement maximal estimé par Alain Bertho, recoupé par les communiqués du ministère (11 200 puis 10 600 mi-novembre) |
 
 ## Méthode
-
-<!-- À compléter : justification des choix. -->
 
 | Modèle | Forme | Rôle |
 |---|---|---|
@@ -117,7 +122,7 @@ Le détail est dans [`METADATA.md`](METADATA.md).
 | G1 | 9 717 | × 1,63 | × 1,29 | × 0,81 |
 | **G2** | **7 525** | **× 1,26** | **× 1,00** | **× 0,63** |
 
-<!-- À compléter : commentaire. -->
+Ces premiers résultats, bien qu'encourageants, ne sont pas satisfaisants. Il semble important de retravailler l'effet des effectifs, car un lien linéaire pourrait conduire à des dommages négatifs.
 
 ### Effet des effectifs
 
@@ -126,7 +131,8 @@ Le détail est dans [`METADATA.md`](METADATA.md).
 | 2005 | −0,37 | 0,006 |
 | 2023 | −0,42 | 0,094 |
 
-<!-- À compléter : interprétation (à interpellations égales, plus d'effectifs va avec moins de véhicules incendiés ; lecture proposée : les effectifs massifs augmentent les interpellations sans réduire les feux dans la même proportion). -->
+On introduit ici une notion d'élasticité aux effectifs : à interpellations égales, davantage d'effectifs va de pair avec moins de véhicules incendiés.
+Lecture proposée : les effectifs massifs augmentent les interpellations sans réduire les feux dans la même proportion.
 
 ### Sensibilité à la série d'effectifs 2005
 
@@ -139,7 +145,6 @@ Le détail est dans [`METADATA.md`](METADATA.md).
 
 ### Figures
 
-<!-- À compléter : chemins définitifs. -->
 
 ![Véhicules et interpellations, 2005 et 2023](sorties/fig1_vehicules_vs_interpellations.png)
 
@@ -149,29 +154,28 @@ Le détail est dans [`METADATA.md`](METADATA.md).
 
 ## Limites
 
-<!-- À compléter et hiérarchiser. Les deux premières sont à conserver telles quelles ou reformulées. -->
 
 1. **Effectifs 2005 reconstitués.** La série a été établie à dire d'expert, après les premiers ajustements. Elle n'a pas été calée sur la cible, mais ce risque de sur-ajustement doit être signalé. Le raisonnement et les sources sont dans `METADATA.md`, et l'analyse de sensibilité en mesure l'effet.
 2. **Calendrier de la montée en charge.** Le rapport du Sénat n° 84 (16 novembre 2005) indique 8 000 hommes engagés au 7 novembre, renforcés de 1 500 réservistes. La série retenue atteint 11 500 dès le soir du 6. L'écart porte sur la date du pic, pas sur son niveau : les communiqués ultérieurs donnent 11 200. La variante alignée sur le Sénat abaisse la prévision de 10 %.
-3. **Deux événements seulement.** *à compléter*
+3. **Deux événements seulement.** Comme énoncé en introduction, des différences notoires existent entre les émeutes de 2005 et celles de 2023 ; même si les chiffres se recoupent, cela peut être lié au hasard.
 4. **Contrôle inverse médiocre.** Calé sur 2023 et appliqué à 2005, G2 surestime de 32 %.
-5. **Confusion possible avec le calendrier.** Dans les deux épisodes, les effectifs montent pendant que les incendies retombent.
-6. **Périmètre des comptages.** *à compléter (véhicules de l'État, zone gendarmerie, niveau habituel d'incendies)*
+5. **Confusion possible avec le calendrier.** Dans les deux épisodes, les effectifs montent pendant que les incendies retombent ; c'est pourquoi un test avec effet retard a été mené, sans résultat concluant.
+6. **Périmètre des comptages.** Nous ne disposons pas d'information sur le périmètre de comptage de 2005 (source Wikipédia) ; en 2023, les chiffres sont issus (estimés) de France Assureurs et n'intègrent pas les véhicules de l'État (Police et Gendarmerie nationales).
 7. **Profil par nuit des bornes 2023.** Redressement uniforme, conventionnel.
-8. **Portée assurantielle.** Les véhicules représentent 46 % des sinistres de 2023 mais 6 % du coût.
+8. **Portée assurantielle.** Les véhicules représentent 46 % des sinistres de 2023 et seulement 6 % du coût.
 
 ## Conclusion
 
-<!-- À compléter. -->
+Ce premier modèle permet d'estimer de manière macroscopique les dommages sur des épisodes de plusieurs jours. Jour par jour, il affiche des erreurs qui se compensent entre le début et la fin des événements.
+Il doit être complété et corrigé, voire abandonné, à chaque nouvel événement. Il faut s'en servir comme d'un support et y ajouter une analyse qualitative de la situation pour l'exploiter correctement en cas de crise.
 
 ## Pistes
 
-<!-- À compléter. Éléments déjà identifiés : -->
 
-- **Modèle de propagation.** Bonnasse-Gahot et al. (2018) décrivent les émeutes de 2005 comme une contagion : modèle épidémiologique par commune, influence décroissante avec la distance. *à compléter*
+- **Modèle de propagation.** Bonnasse-Gahot et al. (2018) décrivent les émeutes de 2005 comme une contagion : modèle épidémiologique par commune, influence décroissante avec la distance.
 - **Indice de dommage composite** (véhicules et bâtiments) plutôt que les seuls véhicules.
 - **Niveau habituel d'incendies** à retrancher.
-- *à compléter*
+
 
 ## Reproduire l'étude
 
@@ -188,6 +192,7 @@ Rscript modele_emeutes.R
 ```
 .
 ├── README.md
+├── LICENSE                     licence MIT du code
 ├── METADATA.md                 dictionnaire des données, sources, incohérences
 ├── modele_emeutes.R            calage 2005, contrôle 2023, sensibilité, figures
 ├── appliquer_scenario.R        application de G2 à un nouvel événement
@@ -240,8 +245,13 @@ Réserve : le modèle est calé sur des nuits d'émeutes en quartiers. Une journ
 - A. Bertho, [Émeutes de 2005 dans les banlieues françaises](https://berthoalain.com/wp-content/uploads/2007/12/emeutes-de-2005-dans-les-banlieues-francaises.pdf).
 - L. Bonnasse-Gahot, H. Berestycki, M.-A. Depuiset, M. B. Gordon, S. Roché, N. Rodríguez, J.-P. Nadal, « Epidemiological modelling of the 2005 French riots: a spreading wave and the role of contagion », *Scientific Reports*, 2018.
 
-<!-- À compléter : autres sources consultées. -->
 
 ## Licence et citation
 
-<!-- À compléter : licence du code, licence des données (les tableaux Wikipédia sont sous CC BY-SA), mention d'auteur, manière de citer. -->
+- **Code** (`*.R`) : licence MIT, voir [`LICENSE`](LICENSE).
+- **Données** (`data/`) et **documentation** : licence [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/deed.fr). Les séries nuit par nuit reprennent des tableaux Wikipédia, eux-mêmes sous CC BY-SA : toute réutilisation doit citer la source et rester sous la même licence.
+- **Auteur** : Thibault Monnet.
+
+Pour citer ce travail :
+
+> Monnet, T. (2026). *Émeutes et violences urbaines : un modèle simple des véhicules incendiés* [code et données]. GitHub. https://github.com/monnet-t/manmade-riots
