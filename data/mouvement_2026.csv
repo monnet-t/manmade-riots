@@ -1,0 +1,18 @@
+date,indicateur,valeur,perimetre,source,remarque
+2026-09-29,etablissements_bloques,338,France - journee,Union etudiante via Reporterre (01/10/2026),chiffre syndical
+2026-09-30,etablissements_bloques,356,France - journee,Union etudiante via Reporterre (01/10/2026),chiffre syndical
+2026-10-01,etablissements_bloques,640,France - journee,Union etudiante via Reporterre (01/10/2026),chiffre syndical
+2026-10-05,etablissements_touches,413,France - mi-journee,Ministere de l'Education nationale via Wikipedia,40 % non concernes auparavant
+2026-09-30,interpellations,625,France - journee,Ministere de l'Interieur via Reporterre,
+2026-10-01,interpellations,1949,France - journee,Ministere de l'Interieur via franceinfo / France 24,Wikipedia presente ce chiffre comme un cumul : contradiction non levee
+2026-10-05,interpellations,984,France - journee,Ministere de l'Interieur via Wikipedia (live franceinfo),
+2026-10-05,gardes_a_vue_cumul,5060,France - cumul depuis le debut,Ministere de la Justice via Wikipedia,dont 87 % de mineurs ; 14 detentions provisoires
+2026-10-01,eleves_blesses_cumul,170,France - cumul,Gouvernement via France 24 / Reporterre,
+2026-10-01,personnels_EN_blesses_cumul,65,France - cumul,Gouvernement via France 24 / Reporterre,
+2026-10-05,eleves_et_personnels_blesses_cumul,190,France - cumul,Ministre de l'Education nationale via Wikipedia,inferieur a 170+65 du 01/10 : perimetres differents ou erreur
+2026-10-01,fdo_pompiers_blesses,300,France - journee,franceinfo (pres de 300),arrondi
+2026-10-01,fdo_pompiers_blesses_cumul,305,France - cumul,France 24 (02/10/2026),policiers gendarmes et pompiers
+2026-10-01,fdo_blesses_cumul,388,France - cumul,Ministere de l'Interieur via Reporterre,policiers et gendarmes
+2026-10-05,fdo_blesses,65,France - journee,Ministere de l'Interieur via Wikipedia,
+2026-10-05,vehicules_incendies,NA,France,aucune source trouvee,pas de decompte publie repere au 06/10/2026
+2026-10-05,fdo_mobilises,NA,France,aucune source trouvee,pas d'effectif national repere au 06/10/2026

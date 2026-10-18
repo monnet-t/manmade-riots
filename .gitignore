@@ -1,0 +1,5 @@
+sorties/*.csv
+sorties/console.txt
+.Rhistory
+.RData
+.Rproj.user/
